@@ -1,6 +1,6 @@
-package org.eu.tz95.config;
+package org.eu.tz95.tools.config;
 
-public class RecordId {
+public class Record {
 
     private String login_token;
 

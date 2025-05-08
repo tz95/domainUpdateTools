@@ -1,8 +1,10 @@
-package org.eu.tz95.connect;
+package org.eu.tz95.tools.connect;
 
-import org.eu.tz95.connect.base.Address;
+import org.eu.tz95.tools.connect.base.Address;
+import org.eu.tz95.tools.util.ConnectionUtil;
 
 import java.net.*;
+import java.net.http.HttpResponse;
 import java.util.Enumeration;
 
 public class Ipv6Address extends Address {
@@ -18,6 +20,13 @@ public class Ipv6Address extends Address {
 
     @Override
     public void updateAddress() {
+        // getLocalIPV6Address();
+        if (ConnectionUtil.testConnection()) {
+            getOnlineAddress();
+        }
+    }
+
+    public void getLocalIPV6Address(){
         String localIpv6 = null;
         try {
             Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
@@ -43,6 +52,16 @@ public class Ipv6Address extends Address {
         this.address = localIpv6;
     }
 
+    public void getOnlineAddress(){
+        HttpResponse<String> resp = ConnectionUtil.sendRequest("https://api6.ipify.org", new String[]{"Accept", "application/text"}, null);
+
+        if (resp.statusCode() == 200) {
+            this.address = resp.body();
+        } else {
+            System.out.println("Failed to get online address");
+        }
+
+    }
 
     private Ipv6Address() {
         updateAddress();

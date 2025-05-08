@@ -1,4 +1,4 @@
-package org.eu.tz95.connect.base;
+package org.eu.tz95.tools.connect.base;
 
 /**
  * @author tz95
@@ -11,5 +11,11 @@ public abstract class Address {
     abstract public void updateAddress();
 
     public String getAddress() {return address;}
-    
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "address='" + address + '\'' +
+                '}';
+    }
 }

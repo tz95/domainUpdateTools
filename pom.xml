@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.eu.tz95</groupId>
+    <groupId>org.eu.tz95.tools</groupId>
     <artifactId>domain-update</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -23,5 +23,29 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <!--<build>-->
+    <!--    <plugins>-->
+    <!--        <plugin>-->
+    <!--            <groupId>org.eu.tz95.tools</groupId>-->
+    <!--            <artifactId>domain-update</artifactId>-->
+    <!--            <version>1.0-SNAPSHOT</version>-->
+    <!--            <configuration>-->
+    <!--                <archive>-->
+    <!--                    <manifest>-->
+    <!--                        <addDefaultImplementationEntries>true</addDefaultImplementationEntries>-->
+    <!--                        <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>-->
+    <!--                        <mainClass>org.eu.tz95.tools.Main</mainClass>-->
+    <!--                    </manifest>-->
+    <!--                    <manifestEntries>-->
+    <!--                        <Implementation-Title>Domain Update Tool</Implementation-Title>-->
+    <!--                        <Implementation-Version>${project.version}</Implementation-Version>-->
+    <!--                        <Implementation-Vendor>tz95.eu.org</Implementation-Vendor>-->
+    <!--                    </manifestEntries>-->
+    <!--                </archive>-->
+    <!--            </configuration>-->
+    <!--        </plugin>-->
+    <!--    </plugins>-->
+    <!--</build>-->
 
 </project>

@@ -1,6 +1,8 @@
-import org.eu.tz95.connect.base.Address;
-import org.eu.tz95.connect.Ipv4Address;
-import org.eu.tz95.connect.Ipv6Address;
+import org.eu.tz95.tools.Main;
+import org.eu.tz95.tools.connect.base.Address;
+import org.eu.tz95.tools.connect.Ipv4Address;
+import org.eu.tz95.tools.connect.Ipv6Address;
+import org.eu.tz95.tools.util.ConnectionUtil;
 import org.junit.Test;
 
 public class TestAddress {
@@ -17,8 +19,24 @@ public class TestAddress {
     public void testIpv4() {
         Address instance = Ipv4Address.getInstance();
         instance.updateAddress();
-        String ipv4Address = instance.getAddress();
-        System.out.println("IPv4 Address: " + ipv4Address);
+        // String ipv4Address = instance.getAddress();
+        System.out.println("IPv4 Address: " + instance);
+    }
+
+    @Test
+    public void testMain(){
+        String[] args = {"ipv6"};
+        Main.main(args);
+    }
+
+    @Test
+    public void testConnect(){
+        boolean result = ConnectionUtil.testConnection();
+        if (result) {
+            System.out.println("Connection successful");
+        } else {
+            System.out.println("Connection failed");
+        }
     }
 
 }
