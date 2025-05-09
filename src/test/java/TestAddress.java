@@ -1,4 +1,5 @@
 import org.eu.tz95.tools.Main;
+import org.eu.tz95.tools.Setup;
 import org.eu.tz95.tools.connect.base.Address;
 import org.eu.tz95.tools.connect.Ipv4Address;
 import org.eu.tz95.tools.connect.Ipv6Address;
@@ -6,6 +7,13 @@ import org.eu.tz95.tools.util.ConnectionUtil;
 import org.junit.Test;
 
 public class TestAddress {
+
+
+
+    @Test
+    public void testGetProperty() {
+        new Setup("ipv6").update();
+    }
 
     @Test
     public void testIpv6() {

@@ -3,6 +3,8 @@ package org.eu.tz95.tools;
 import org.eu.tz95.tools.connect.Ipv4Address;
 import org.eu.tz95.tools.connect.Ipv6Address;
 import org.eu.tz95.tools.connect.base.Address;
+import org.eu.tz95.tools.config.Record;
+import org.eu.tz95.tools.util.RecordUtil;
 
 /**
  * @author tz95
@@ -11,7 +13,18 @@ import org.eu.tz95.tools.connect.base.Address;
  */
 public class Setup {
 
+    private Record record;
+
     private Address address;
+
+    private void getRecordId(){
+        record = RecordUtil.getRecordProp();
+        if (record == null) {
+            System.out.println("RecordId is null");
+            return;
+        }
+        System.out.println("record = " + record);
+    }
 
     public Setup(String type) {
         if (type.equals("ipv4") || type.equals("IPV4")) {
@@ -24,6 +37,15 @@ public class Setup {
     }
 
     public void update() {
+        getRecordId();
+        String recordList = null;
+        try {
+            recordList = RecordUtil.getRecordList(record);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("recordList = " + recordList);
+
         System.out.println("Hello!"+address);
     }
 }

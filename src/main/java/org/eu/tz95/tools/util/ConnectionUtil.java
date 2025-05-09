@@ -42,7 +42,8 @@ public class ConnectionUtil {
         if (resp.statusCode() == 200) {
             return resp;
         } else {
-            System.out.println("Failed to connect to the internet");
+            System.err.println("请求失败 - 状态码: " + resp.statusCode());
+            System.err.println("响应内容: " + resp.body()); // 输出 API 错误详情
             return null;
         }
     }
