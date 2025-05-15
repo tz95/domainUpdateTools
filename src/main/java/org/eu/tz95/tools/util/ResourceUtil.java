@@ -1,10 +1,8 @@
 package org.eu.tz95.tools.util;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
 /**
@@ -19,18 +17,18 @@ public class ResourceUtil {
     public static Properties readProperties(String fileName) {
         if (fileName.endsWith(".properties")) {
             Properties prop = new Properties();
-            InputStream is = null;
+            InputStreamReader is = null;
             if (haveResource()){
                 // 如果resources文件夹存在，则从该文件夹读取配置文件
                 File file = new File(resources, fileName);
                 try{
-                    is = new FileInputStream(file);
+                    is = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8);
                 }catch (Exception e){
                     e.printStackTrace();
                 }
             }else{
                 try{
-                    is = ResourceUtil.class.getResourceAsStream("/"+fileName);
+                    is = new InputStreamReader(ResourceUtil.class.getResourceAsStream("/"+fileName), StandardCharsets.UTF_8);
                 }catch (Exception e){
                     e.printStackTrace();
                 }

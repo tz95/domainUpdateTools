@@ -4,10 +4,18 @@ import org.eu.tz95.tools.connect.base.Address;
 import org.eu.tz95.tools.connect.Ipv4Address;
 import org.eu.tz95.tools.connect.Ipv6Address;
 import org.eu.tz95.tools.util.ConnectionUtil;
+import org.junit.Before;
 import org.junit.Test;
+
+import java.io.ByteArrayInputStream;
 
 public class TestAddress {
 
+    @Before
+    public void setArgs(){
+        String arg = "2";
+        System.setIn(new ByteArrayInputStream(arg.getBytes()));
+    }
 
 
     @Test

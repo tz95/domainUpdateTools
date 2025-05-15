@@ -7,7 +7,33 @@
     <groupId>org.eu.tz95.tools</groupId>
     <artifactId>domain-update</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <archive>
+                        <manifest>
+                            <mainClass>org.eu.tz95.tools.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -28,29 +54,5 @@
             <version>20240205</version>
         </dependency>
     </dependencies>
-
-    <!--<build>-->
-    <!--    <plugins>-->
-    <!--        <plugin>-->
-    <!--            <groupId>org.eu.tz95.tools</groupId>-->
-    <!--            <artifactId>domain-update</artifactId>-->
-    <!--            <version>1.0-SNAPSHOT</version>-->
-    <!--            <configuration>-->
-    <!--                <archive>-->
-    <!--                    <manifest>-->
-    <!--                        <addDefaultImplementationEntries>true</addDefaultImplementationEntries>-->
-    <!--                        <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>-->
-    <!--                        <mainClass>org.eu.tz95.tools.Main</mainClass>-->
-    <!--                    </manifest>-->
-    <!--                    <manifestEntries>-->
-    <!--                        <Implementation-Title>Domain Update Tool</Implementation-Title>-->
-    <!--                        <Implementation-Version>${project.version}</Implementation-Version>-->
-    <!--                        <Implementation-Vendor>tz95.eu.org</Implementation-Vendor>-->
-    <!--                    </manifestEntries>-->
-    <!--                </archive>-->
-    <!--            </configuration>-->
-    <!--        </plugin>-->
-    <!--    </plugins>-->
-    <!--</build>-->
 
 </project>

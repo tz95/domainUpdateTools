@@ -1,4 +1,4 @@
-## 通过DNSPOD对本机进行动态域名解析的小工具(当前未完成主要功能)
+## 通过DNSPOD对本机进行动态域名解析的小工具(当前完成更新记录功能)
 
 ### 1. 介绍
 
@@ -20,17 +20,27 @@ login_token=登录口令
 format=json 
 #返回格式 勿做变动
 
+record_type=记录类型
+#请根据DNSPOD控制台给出的类型填入,在此不作说明
+
+record_line=线路类型
+#请根据DNSPOD控制台给出的类型填入,在此不作说明
+
+ttl=600
+#可自行调整
+
 ```
     
 
     (待实现) 通过命令行参数传入想要更新的本机IP类型; 例:
-        java -jar domain-update ipv4
+        java -jar domain-update [ipv4/ipv6]]
 
 ### 3. 依赖
-    - Java 21+
+    - Java 17+
     - Maven
     - DNSPOD API
     - Junit4
+    - JSON-java
 
 
 目前尚在开发阶段，许可证信息将会在后续补充，当前仅做提交，功能尚不完善，欢迎提出建议。
